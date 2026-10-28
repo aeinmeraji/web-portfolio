@@ -1,0 +1,13 @@
+<svg width="270" height="310" viewBox="0 0 270 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="light" cx="0" cy="0" r="1" gradientTransform="translate(81.0 62.0) rotate(55) scale(310 270)" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FAF8F1" stop-opacity=".24"/>
+    <stop offset=".55" stop-color="#8BBB92" stop-opacity=".02"/>
+    <stop offset="1" stop-color="#092328" stop-opacity=".14"/>
+  </radialGradient>
+</defs>
+<path d="M124 8C177-8 218 47 217 94C216 131 269 153 258 200C246 248 187 247 154 285C117 325 71 302 42 265C-1 213 5 171 29 127C50 86 66 22 124 8Z" fill="#8BBB92" fill-opacity=".42"/>
+<path d="M124 8C177-8 218 47 217 94C216 131 269 153 258 200C246 248 187 247 154 285C117 325 71 302 42 265C-1 213 5 171 29 127C50 86 66 22 124 8Z" fill="url(#light)"/>
+<path d="M124 8C177-8 218 47 217 94C216 131 269 153 258 200C246 248 187 247 154 285C117 325 71 302 42 265C-1 213 5 171 29 127C50 86 66 22 124 8Z" stroke="#FAF8F1" stroke-opacity=".12" stroke-width=".8"/>
+<path d="M37 168C58 129 71 66 117 35" stroke="#FAF8F1" stroke-opacity=".16" stroke-width="1.1" stroke-linecap="round"/>
+</svg>
