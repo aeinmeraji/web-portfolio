@@ -172,18 +172,21 @@
 }
 
 /* KalaBox opens from the entire preview; only the image blurs. */
-a[data-node-id="1:68"] {
+a[data-node-id="1:68"],
+a[data-name="Task Preview"] {
   text-decoration: none;
   color: #12544f;
 }
 
 a[data-node-id="1:68"] > img,
+a[data-name="Task Preview"] > img,
 [data-name="Barber Artwork"] {
   filter: none;
   transform: scale(1);
   transition: filter 380ms ease, transform 500ms cubic-bezier(.2,.7,.2,1);
 }
 
+[data-name="Task Preview Action"],
 [data-name="KalaBox Preview Action"],
 [data-name="Barber Preview Action"] {
   position: absolute;
@@ -204,31 +207,39 @@ a[data-node-id="1:68"] > img,
 }
 
 [data-name="KalaBox Preview Action"] > span,
+[data-name="Task Preview Action"] > span,
 [data-name="Barber Preview Action"] > span { margin-inset-inline-start: 12px; }
 
 @media (hover: hover) and (pointer: fine) {
 a[data-node-id="1:68"]:hover > img,
+a[data-name="Task Preview"]:hover > img,
+a[data-name="Task Preview"]:focus-visible > img,
 [data-name="Barber Preview"]:hover > [data-name="Barber Artwork"] {
   filter: blur(6px) brightness(.94);
   transform: scale(1.025);
 }
 
 a[data-node-id="1:68"]:hover > [data-name="KalaBox Preview Action"],
+a[data-name="Task Preview"]:hover > [data-name="Task Preview Action"],
+a[data-name="Task Preview"]:focus-visible > [data-name="Task Preview Action"],
 [data-name="Barber Preview"]:hover > [data-name="Barber Preview Action"] {
   opacity: 1;
   transform: translate(-50%, -50%);
 }
 }
 
-a[data-node-id="1:68"]:focus-visible {
+a[data-node-id="1:68"]:focus-visible,
+a[data-name="Task Preview"]:focus-visible {
   outline: 2px solid #12544f;
   outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: reduce) {
   a[data-node-id="1:68"] > img,
+a[data-name="Task Preview"] > img,
   [data-name="Barber Artwork"],
   [data-name="KalaBox Preview Action"],
+  [data-name="Task Preview Action"],
   [data-name="Barber Preview Action"] { transition: none; }
 }
 

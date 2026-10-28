@@ -237,43 +237,10 @@ export default function PortfolioDesktop1440() {
           </p>
         </a>
         <div className="absolute bg-[#faf8f1] border border-[#cad6d1] border-solid h-[386px] left-[821px] rounded-[20px] top-[601px] w-[512px]" data-node-id="1:104" data-ui="project-card" data-name="Project / Taskly">
-          <div className="absolute bg-[#092328] h-[228px] left-[17px] rounded-[16px] top-[17px] w-[476px]" data-node-id="1:105" data-name="Task Preview" data-art-width="476"><div class="task-art-scene" data-art-scene>
-            <p className="[word-break:break-word] absolute font-['Inter:Semi_Bold'] font-semibold leading-[normal] left-[18px] not-italic text-[#8bbb92] text-[10px] top-[16px] whitespace-nowrap" data-node-id="1:106">
-              Taskly
-            </p>
-            <div className="[word-break:break-word] absolute font-['Inter:Bold'] font-bold h-[10px] leading-[0] left-[18px] not-italic text-[25px] text-white top-[56px] w-[236px]" data-node-id="1:107">
-              <p className="leading-[30px] mb-0">Organize Today.</p>
-              <p className="leading-[30px]">Achieve Tomorrow.</p>
-            </div>
-            <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal h-[10px] leading-[15px] left-[18px] not-italic text-[#c5d6d0] text-[10px] top-[126px] w-[240px]" data-node-id="1:108">
-              A simple and powerful way to manage your tasks and stay productive.
-            </p>
-            <div className="absolute bg-[#12544f] border border-[#8bbb92] border-solid h-[172px] left-[286px] rounded-[14px] top-[28px] w-[168px]" data-node-id="1:109" data-name="Task Panel">
-              <p className="[word-break:break-word] absolute font-['Inter:Semi_Bold'] font-semibold leading-[normal] left-[13px] not-italic text-[10px] text-white top-[13px] whitespace-nowrap" data-node-id="1:110">
-                My Tasks
-              </p>
-              <div className="absolute bg-[#2a835f] left-[13px] rounded-[3px] size-[10px] top-[43px]" data-node-id="1:111" data-name="Checkbox 0" />
-              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[normal] left-[33px] not-italic text-[#d7e3df] text-[8px] top-[39px] whitespace-nowrap" data-node-id="1:112">
-                Task 1
-              </p>
-              <div className="absolute bg-[#2a835f] left-[13px] rounded-[3px] size-[10px] top-[68px]" data-node-id="1:113" data-name="Checkbox 1" />
-              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[normal] left-[33px] not-italic text-[#d7e3df] text-[8px] top-[64px] whitespace-nowrap" data-node-id="1:114">
-                Task 2
-              </p>
-              <div className="absolute bg-[#2a835f] left-[13px] rounded-[3px] size-[10px] top-[93px]" data-node-id="1:115" data-name="Checkbox 2" />
-              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[normal] left-[33px] not-italic text-[#d7e3df] text-[8px] top-[89px] whitespace-nowrap" data-node-id="1:116">
-                Task 3
-              </p>
-              <div className="absolute bg-[#2a835f] left-[13px] rounded-[3px] size-[10px] top-[118px]" data-node-id="1:117" data-name="Checkbox 3" />
-              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[normal] left-[33px] not-italic text-[#d7e3df] text-[8px] top-[114px] whitespace-nowrap" data-node-id="1:118">
-                Task 4
-              </p>
-              <div className="absolute bg-[#2a835f] left-[13px] rounded-[3px] size-[10px] top-[143px]" data-node-id="1:119" data-name="Checkbox 4" />
-              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[normal] left-[33px] not-italic text-[#d7e3df] text-[8px] top-[139px] whitespace-nowrap" data-node-id="1:120">
-                Task 5
-              </p>
-            </div>
-          </div></div>
+          <a className="absolute bg-[#f4f5f7] h-[228px] left-[17px] rounded-[16px] top-[17px] w-[476px] overflow-clip" data-node-id="1:105" data-name="Task Preview" href="https://to-do-list-aeinmeraji.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="View this project">
+            <img alt="" className="absolute block inset-0 max-w-none size-full object-cover" src="./assets/daymark-cover.png" width="1811" height="868" loading="lazy" decoding="async" />
+            <span data-name="Task Preview Action">View this project <span aria-hidden="true">&#8599;</span></span>
+          </a>
           <p className="[word-break:break-word] absolute font-['Inter:Semi_Bold'] font-semibold leading-[normal] left-[17px] not-italic text-[#092328] text-[20px] top-[261px] whitespace-nowrap" data-node-id="1:121" data-ui="project-title">
             Taskly
           </p>

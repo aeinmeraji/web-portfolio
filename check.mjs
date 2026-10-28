@@ -15,7 +15,8 @@ for (const name of ['name', 'email', 'project_type', 'message']) {
 }
 const links = [...html.matchAll(/<a\b[^>]*>/g)].map(match => match[0]);
 const projectLinks = links.filter(link => /href="https:\/\/[^\"]+\.vercel\.app\//.test(link));
-assert.equal(projectLinks.length, 2, 'KalaBox and Aein Barbers must link to their live projects.');
+assert.equal(projectLinks.length, 3, 'All three projects must link to their live projects.');
+assert(projectLinks[2].includes('href="https://to-do-list-aeinmeraji.vercel.app/"'));
 assert(projectLinks[0].includes('href="https://online-shop-tawny-pi.vercel.app/"'));
 assert(projectLinks[1].includes('href="https://barber-shop-omega-self.vercel.app/"'));
 assert(projectLinks[1].includes('target="_blank"') && projectLinks[1].includes('rel="noopener noreferrer"'));

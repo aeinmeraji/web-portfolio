@@ -66,7 +66,7 @@ for (const weight of ['Regular', 'Medium', 'SemiBold', 'Bold']) {
 for (const file of ['lenis.min.js', 'lenis.css']) {
   copyFileSync(new URL(`./node_modules/lenis/dist/${file}`, import.meta.url), new URL(`./dist/vendor/${file}`, import.meta.url));
 }
-for (const file of ['aein-barbers-cover.jpg', 'contact-sage.svg', 'contact-teal.svg']) {
+for (const file of ['daymark-cover.png', 'aein-barbers-cover.jpg', 'contact-sage.svg', 'contact-teal.svg']) {
   copyFileSync(new URL(`./artwork/${file}`, import.meta.url), new URL(`./dist/assets/${file}`, import.meta.url));
 }
 writeFileSync(new URL('./dist/styles.css', import.meta.url), css + '\n' + readFileSync(new URL('./hero-motion.css', import.meta.url), 'utf8') + '\n' + readFileSync(new URL('./contact.css', import.meta.url), 'utf8') + '\n' + readFileSync(new URL('./i18n.css', import.meta.url), 'utf8') + '\n' + readFileSync(new URL('./mobile.css', import.meta.url), 'utf8') + '\n' + readFileSync(new URL('./theme.css', import.meta.url), 'utf8'));
