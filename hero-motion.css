@@ -1,0 +1,464 @@
+/* Native fallback until a mouse enters and the smooth cursor is ready. */
+@media (hover: hover) and (pointer: fine) {
+  html { --site-cursor: url('./assets/cursor-mouse.svg') 13 5, auto; }
+  html[data-cursor-pressed="true"] { --site-cursor: url('./assets/cursor-mouse-pressed.svg') 13 5, auto; }
+  html, body, body * { cursor: var(--site-cursor); }
+}
+
+.smooth-cursor {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  background: url('./assets/cursor-mouse.svg') no-repeat;
+  pointer-events: none;
+  z-index: 2147483647;
+  will-change: transform;
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html[data-smooth-cursor="true"],
+  html[data-smooth-cursor="true"] body,
+  html[data-smooth-cursor="true"] body * { cursor: none; }
+  html[data-smooth-cursor="true"] .smooth-cursor { display: block; }
+  html[data-cursor-pressed="true"] .smooth-cursor {
+    background-image: url('./assets/cursor-mouse-pressed.svg');
+  }
+}
+
+.hero-social-rail {
+  position: absolute;
+  inset-inline-start: 12px;
+  top: 267px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.hero-social-link {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #cad6d1;
+  border-radius: 50%;
+  background: #faf8f1;
+  color: #12544f;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.hero-social-link svg { width: 21px; height: 21px; }
+[data-name="Rail Line"] { inset-inline-start: 31.5px; top: 149px; }
+.hero-social-link:hover, .hero-social-link:focus-visible {
+  background: #12544f;
+  border-color: #12544f;
+  color: #faf8f1;
+}
+.hero-social-link:focus-visible { outline: 2px solid #2a835f; outline-offset: 4px; }
+
+/* Sculpted SVG layers keep the same floating and pointer-driven physics. */
+[data-name="01 / Hero"] :is([data-name^="Shape / "], [data-name="Orbit"]),
+[data-name="01 / Hero"] :is([data-name^="Shape / "], [data-name="Orbit"]) * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+[data-name="01 / Hero"] [data-name^="Shape / "] {
+  --float-x: 18px;
+  --float-y: -24px;
+  --float-turn: 7deg;
+  border-radius: 50%;
+  transform-origin: 50% 50%;
+  animation: sculpture-drift 7s ease-in-out infinite alternate;
+  will-change: transform;
+  pointer-events: none;
+}
+
+[data-name="01 / Hero"] [data-name^="Shape / "]::after {
+  /* Lighting follows each organic SVG contour rather than an ellipse. */
+  content: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 28% 18%, #faf8f14a, transparent 58%);
+  box-shadow: inset 1px 2px 2px #faf8f13b, inset -5px -8px 20px #0923280c;
+}
+
+[data-name="01 / Hero"] [data-name="Shape / Sage"] {
+  --float-x: -24px;
+  --float-y: 20px;
+  --float-turn: -9deg;
+  animation-duration: 8s;
+  animation-delay: -3s;
+}
+
+[data-name="01 / Hero"] [data-name="Shape / Green"] {
+  --float-x: 24px;
+  --float-y: -25px;
+  --float-turn: 10deg;
+  animation-duration: 6.5s;
+  animation-delay: -1s;
+}
+
+[data-name="01 / Hero"] [data-name="Shape / Deep"] {
+  --float-x: -17px;
+  --float-y: 18px;
+  --float-turn: -6deg;
+  animation-duration: 5.5s;
+  animation-delay: -2s;
+  filter: drop-shadow(0 15px 16px #12544f15);
+}
+
+[data-name="01 / Hero"] [data-name="Shape / Ink"] {
+  --float-x: 15px;
+  --float-y: -17px;
+  --float-turn: 6deg;
+  animation-duration: 6s;
+  animation-delay: -4s;
+}
+
+[data-name="01 / Hero"] [data-name="Shape / Ink"]::after {
+  background: radial-gradient(ellipse at 30% 18%, #8bbb9238, transparent 65%);
+  box-shadow: inset 0 1px 1px #8bbb9240, inset -9px -12px 28px #09232830;
+}
+
+[data-name="01 / Hero"] [data-name="Orbit"] {
+  border-radius: 50%;
+  animation: orbital-travel 24s linear infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+[data-name="01 / Hero"] [data-name="Orbit"]::before {
+  content: "";
+  position: absolute;
+  inset: 25px -9px;
+  border: 1px solid #2a835f1c;
+  border-radius: 50%;
+  transform: rotate(-32deg) scaleX(.84);
+}
+
+[data-name="01 / Hero"] [data-name="Orbit"]::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #cbdcc8, #2a835f 65%, #12544f);
+  box-shadow: 0 0 0 5px #8bbb9214, 0 3px 9px #12544f20;
+}
+
+@keyframes sculpture-drift {
+  from { transform: translate(calc(var(--float-x) * -.65), calc(var(--float-y) * -.65)) rotate(calc(var(--float-turn) * -.6)); }
+  to { transform: translate(var(--float-x), var(--float-y)) rotate(var(--float-turn)); }
+}
+
+@keyframes orbital-travel {
+  from { transform: translateY(-5px) rotate(-35deg); }
+  50% { transform: translateY(7px) rotate(145deg); }
+  to { transform: translateY(-5px) rotate(325deg); }
+}
+
+[data-name="02 / Services"] > [data-name^="Service / "] {
+  transform-origin: center;
+  transition: transform 220ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-name="02 / Services"] > [data-name^="Service / "]:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* KalaBox opens from the entire preview; only the image blurs. */
+a[data-node-id="1:68"] {
+  text-decoration: none;
+  color: #12544f;
+}
+
+a[data-node-id="1:68"] > img,
+[data-name="Barber Artwork"] {
+  filter: none;
+  transform: scale(1);
+  transition: filter 380ms ease, transform 500ms cubic-bezier(.2,.7,.2,1);
+}
+
+[data-name="KalaBox Preview Action"],
+[data-name="Barber Preview Action"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  opacity: 0;
+  padding: 17px 25px;
+  border: 1px solid #cad6d1;
+  border-radius: 50px;
+  background: #faf8f1f5;
+  box-shadow: 0 10px 32px #0923281f;
+  font-size: 17px;
+  font-weight: 600;
+  color: #12544f;
+  white-space: nowrap;
+  transition: opacity 300ms ease, transform 380ms cubic-bezier(.2,.7,.2,1);
+}
+
+[data-name="KalaBox Preview Action"] > span,
+[data-name="Barber Preview Action"] > span { margin-inset-inline-start: 12px; }
+
+@media (hover: hover) and (pointer: fine) {
+a[data-node-id="1:68"]:hover > img,
+[data-name="Barber Preview"]:hover > [data-name="Barber Artwork"] {
+  filter: blur(6px) brightness(.94);
+  transform: scale(1.025);
+}
+
+a[data-node-id="1:68"]:hover > [data-name="KalaBox Preview Action"],
+[data-name="Barber Preview"]:hover > [data-name="Barber Preview Action"] {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+}
+
+a[data-node-id="1:68"]:focus-visible {
+  outline: 2px solid #12544f;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a[data-node-id="1:68"] > img,
+  [data-name="Barber Artwork"],
+  [data-name="KalaBox Preview Action"],
+  [data-name="Barber Preview Action"] { transition: none; }
+}
+
+/* Espresso-and-brass artwork within the portfolio's existing cream card. */
+[data-name="Project / Aein Barbers"] {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+[data-name="Project / Aein Barbers"]:hover,
+[data-name="Project / Aein Barbers"]:focus-visible {
+  border-color: #8bbb92;
+  box-shadow: 0 8px 24px #0923280b;
+}
+
+[data-name="Project / Aein Barbers"]:focus-visible {
+  outline: 2px solid #12544f;
+  outline-offset: 5px;
+}
+
+[data-name="Barber Preview"] {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+[data-name="Barber Artwork"] {
+  isolation: isolate;
+}
+
+[data-name="Barber Interior"] {
+  z-index: -1;
+}
+
+[data-node-id="1:95"] {
+  top: 22px;
+  inset-inline-start: 24px;
+  color: #d8c49e;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2.2px;
+}
+
+[data-node-id="1:96"] {
+  inset-inline-start: 24px;
+  top: 63px;
+  color: #f4eee1;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 29px;
+  font-weight: 400;
+}
+
+[data-node-id="1:96"] p {
+  line-height: 31px;
+}
+
+[data-node-id="1:97"] {
+  inset-inline-start: 24px;
+  top: 174px;
+  width: 200px;
+  height: auto;
+  color: #c8beb0;
+  font-size: 9px;
+}
+
+[data-node-id="1:102"] {
+  width: 310px;
+  height: auto;
+}
+
+/* Keep the full introduction's wrapping and space throughout its typing reveal. */
+[data-node-id="1:56"],
+[data-node-id="1:65"] {
+  height: auto;
+}
+
+/* Reuse the exact image for its two accent strokes, keeping the text still. */
+[data-node-id="1:47"] > img {
+  clip-path: polygon(evenodd, 0 0, 100% 0, 100% 100%, 0 100%, 0 0, 85.9% 27.2%, 85.9% 24.6%, 88.7% 9%, 89.7% 8.9%, 90.7% 10%, 90.7% 13%, 87.2% 27.2%, 85.9% 27.2%, 0 0, 88% 30%, 93.5% 17%, 96% 17%, 96% 25%, 90% 34.5%, 88% 34.5%, 88% 30%, 0 0);
+}
+
+[data-node-id="1:47"]::before,
+[data-node-id="1:47"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('./assets/3efcd.png') center / cover no-repeat;
+  pointer-events: none;
+  animation: accent-lift 5.8s cubic-bezier(.45, 0, .3, 1) infinite;
+  transform-origin: 87% 27%;
+}
+
+[data-node-id="1:47"]::before {
+  clip-path: polygon(85.9% 27.2%, 85.9% 24.6%, 88.7% 9%, 89.7% 8.9%, 90.7% 10%, 90.7% 13%, 87.2% 27.2%);
+}
+
+[data-node-id="1:47"]::after {
+  clip-path: polygon(88% 30%, 93.5% 17%, 96% 17%, 96% 25%, 90% 34.5%, 88% 34.5%);
+  transform-origin: 89% 32%;
+  animation-delay: .22s;
+}
+
+/* A quieter echo of the hero's floating layers beside the contact form. */
+[data-name="Contact Shape 1"],
+[data-name="Contact Shape 2"] {
+  pointer-events: none;
+  transform-origin: center;
+  will-change: transform;
+}
+
+[data-name="Contact Shape 1"] {
+  animation: contact-orb-drift 8s ease-in-out infinite alternate;
+  animation-delay: -2s;
+}
+
+[data-name="Contact Shape 2"] {
+  animation: contact-pebble-drift 9s ease-in-out infinite alternate;
+  animation-delay: -5s;
+}
+
+@keyframes contact-orb-drift {
+  from { transform: translate(-8px, 0) scale(.985); }
+  to { transform: translate(8px, -13px) scale(1.015); }
+}
+
+@keyframes contact-pebble-drift {
+  from { transform: translate(7px, -3px) rotate(3deg); }
+  to { transform: translate(-8px, -14px) rotate(-3deg); }
+}
+
+@keyframes accent-lift {
+  0%, 70%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  22% { transform: translate(1px, -2.5px) rotate(2deg) scale(1.045); }
+  43% { transform: translate(.3px, -.8px) rotate(-.6deg) scale(1.012); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-node-id="1:47"]::before,
+  [data-node-id="1:47"]::after {
+    animation: none;
+  }
+  [data-name="02 / Services"] > [data-name^="Service / "] {
+    transition: none;
+  }
+
+  [data-name="01 / Hero"] [data-name^="Shape / "],
+  [data-name="01 / Hero"] [data-name="Orbit"],
+  [data-name="Contact Shape 1"],
+  [data-name="Contact Shape 2"] {
+    animation: none;
+    will-change: auto;
+  }
+}
+
+/* Real section links retain the original design and full button hit areas. */
+a[href^="#"] {
+  text-decoration: none;
+}
+a[href^="#"]:focus-visible {
+  outline: 3px solid #2a835f;
+  outline-offset: 5px;
+}
+[data-node-id="1:17"]::after,
+[data-node-id="1:19"]::after,
+[data-node-id="1:20"]::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+}
+/* These labels sit above the corresponding full-size anchor backgrounds. */
+[data-node-id="1:50"],
+[data-node-id="1:51"] {
+  pointer-events: none;
+}
+
+/* A restrained surface groups the navigation without changing the hero layout. */
+[data-name="01 / Hero"]::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 825px;
+  top: 21px;
+  width: 512px;
+  height: 72px;
+  border: 1px solid rgba(18, 84, 79, .09);
+  border-radius: 17px;
+  background: rgba(202, 214, 209, .12);
+  pointer-events: none;
+}
+[data-node-id="1:18"] { display: none; }
+[data-node-id="1:17"], [data-node-id="1:19"], [data-node-id="1:20"] {
+  color: #092328;
+  font-weight: 500;
+  top: 49px;
+}
+[data-node-id="1:17"][aria-current="location"],
+[data-node-id="1:19"][aria-current="location"],
+[data-node-id="1:20"][aria-current="location"] {
+  color: #12544f;
+  font-weight: 600;
+}
+[data-node-id="1:17"]::before, [data-node-id="1:19"]::before,
+[data-node-id="1:20"]::before, [data-node-id="1:21"]::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  left: 50%;
+  top: calc(100% + 7px);
+  border-radius: 50%;
+  background: #2a835f;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+[data-node-id="1:17"]:is(:hover, :focus-visible, [aria-current="location"])::before,
+[data-node-id="1:19"]:is(:hover, :focus-visible, [aria-current="location"])::before,
+[data-node-id="1:20"]:is(:hover, :focus-visible, [aria-current="location"])::before,
+[data-node-id="1:21"]:is(:hover, :focus-visible, [aria-current="location"])::before { opacity: 1; }
+[data-node-id="1:21"] {
+  inset-inline-start: 1177px;
+  top: 35px;
+  width: 140px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[data-node-id="I1:21;4272:409"] { position: static; }
+@media (prefers-reduced-motion: reduce) {
+  [data-node-id="1:17"]::before, [data-node-id="1:19"]::before,
+  [data-node-id="1:20"]::before, [data-node-id="1:21"]::before { transition: none; }
+}

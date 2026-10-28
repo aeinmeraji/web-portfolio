@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="150" viewBox="0 0 220 150" fill="none">
+  <defs>
+    <linearGradient id="teal" x1="42" y1="19" x2="157" y2="139" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FBCA4"/>
+      <stop offset=".52" stop-color="#438F79"/>
+      <stop offset="1" stop-color="#1C655B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(68 37) rotate(55) scale(91 122)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DAE8D1" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#DAE8D1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M16 67C26 43 46 23 76 18C99 14 112 34 130 36C154 40 171 12 192 30C214 48 211 77 194 96C175 119 157 136 127 135C103 134 97 113 77 115C53 118 29 137 16 115C8 102 9 84 16 67Z" fill="url(#teal)"/>
+  <path d="M16 67C26 43 46 23 76 18C99 14 112 34 130 36C154 40 171 12 192 30C214 48 211 77 194 96C175 119 157 136 127 135C103 134 97 113 77 115C53 118 29 137 16 115C8 102 9 84 16 67Z" fill="url(#glow)"/>
+  <path d="M29 68C41 46 60 31 79 31C99 31 110 49 132 49" stroke="#E4EBD6" stroke-opacity=".45" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M107 112C135 130 162 111 178 94" stroke="#123E39" stroke-opacity=".19" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

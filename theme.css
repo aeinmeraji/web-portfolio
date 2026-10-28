@@ -1,0 +1,95 @@
+:root {
+  color-scheme: light;
+  --theme-page: #f5f3ea; --theme-surface: #faf8f1; --theme-card: #faf8f1;
+  --theme-border: #cad6d1; --theme-text: #092328; --theme-muted: #657774;
+  --theme-accent: #12544f; --theme-highlight: #2a835f; --theme-sage: #8bbb92;
+  --theme-primary: #12544f; --theme-focus: #2a835f;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --theme-page: #071513; --theme-surface: #0b1b19; --theme-card: #0e201d;
+  --theme-border: #2c413a; --theme-text: #f0f0e6; --theme-muted: #a4b5ad;
+  --theme-accent: #b7d1aa; --theme-highlight: #8dc489; --theme-sage: #32876d;
+  --theme-primary: #287e61; --theme-focus: #b7d1aa;
+}
+.language-picker { display: flex; align-items: center; gap: 16px; }
+#theme-toggle { display: grid; place-items: center; flex: none; width: 36px; height: 36px; padding: 6px; border: 0; border-radius: 8px; background: transparent; color: var(--theme-accent); }
+#theme-toggle svg { width: 24px; height: 24px; }
+#theme-toggle .theme-sun, [data-theme="dark"] #theme-toggle .theme-moon { display: none; }
+[data-theme="dark"] #theme-toggle .theme-sun { display: block; }
+#theme-toggle:focus-visible { outline: 2px solid var(--theme-focus); outline-offset: 3px; }
+
+/* Project previews have their own artwork palette, independent of the surrounding UI. */
+:is([data-name="Project Preview"], [data-name="Barber Preview"], [data-name="Task Preview"]) {
+  --theme-page:#f5f3ea; --theme-surface:#faf8f1; --theme-border:#cad6d1;
+  --theme-text:#092328; --theme-muted:#657774; --theme-accent:#12544f;
+  --theme-highlight:#2a835f; --theme-sage:#8bbb92; --theme-primary:#12544f;
+}
+[data-theme="dark"] :is([data-ui="service-card"], [data-ui="project-card"], .contact-form, .phone-panel) { background: var(--theme-card); border-color: var(--theme-border); }
+[data-theme="dark"] :is(.contact-section, .site-footer, .site-header) { background: var(--theme-surface); border-color: var(--theme-border); color: var(--theme-text); }
+[data-theme="dark"] :is(.contact-description, .contact-location > span, .contact-field label span, .contact-privacy, .footer-brand small, .site-footer nav a, .site-footer > p, .mobile-availability) { color: var(--theme-muted); }
+[data-theme="dark"] :is(.contact-email, .contact-phone, .contact-social, .contact-privacy a, #language-toggle, .menu-toggle, .phone-panel) { color: var(--theme-accent); }
+[data-theme="dark"] :is(.footer-brand, .contact-field :is(input, select, textarea), .contact-field select option) { color: var(--theme-text); }
+[data-theme="dark"] :is(.contact-field :is(input, select, textarea), .contact-social) { background: var(--theme-card); border-color: var(--theme-border); }
+[data-theme="dark"] :is(.contact-field ::placeholder, .contact-field select:has(option:checked[value=""])) { color: var(--theme-muted); opacity: 1; }
+[data-theme="dark"] :is(.contact-phone, .contact-connect, #home .hero-social-rail) { border-color: var(--theme-border); }
+[data-theme="dark"] :is(.contact-submit, .phone-call) { background: var(--theme-primary); color: #f0f0e6; }
+[data-theme="dark"] :is(.phone-copy, .contact-social:hover, .contact-phone:hover) { background: var(--theme-border); color: var(--theme-text); }
+[data-theme="dark"] .contact-status { color: var(--theme-accent); }
+[data-theme="dark"] .contact-status[data-state="error"] { color: #ffaaa2; }
+[data-theme="dark"] :focus-visible { outline-color: var(--theme-focus) !important; }
+[data-theme="dark"] :is(.mobile-brand img, .footer-brand img, [data-node-id="1:48"] img, [data-node-id="1:49"] img) { filter: brightness(0) saturate(100%) invert(87%) sepia(12%) saturate(510%) hue-rotate(53deg); }
+[data-theme="dark"] :is([data-name="Accent Orb"] img, [data-name^="Grid Dot"] img) { filter: brightness(.72) saturate(.85); }
+[data-theme="dark"] .contact-art img { filter: brightness(.8) saturate(.85) drop-shadow(0 0 16px #32876d55); }
+[data-theme="dark"] [data-name="Shape / Sage"] { filter: brightness(.8) saturate(.8) drop-shadow(0 0 20px #8bbb9238); }
+[data-theme="dark"] [data-name="Shape / Green"] { filter: brightness(.8) saturate(.85); }
+[data-theme="dark"] [data-name="Orbit"] { filter: brightness(1.2); }
+[data-theme="dark"] [data-name="01 / Hero"]::before { background: #10231f; border-color: var(--theme-border); }
+[data-theme="dark"] :is([data-node-id="1:17"], [data-node-id="1:19"], [data-node-id="1:20"], [data-ui="contact-label"]) { color: var(--theme-text); }
+[data-theme="dark"] :is([data-node-id="1:17"], [data-node-id="1:19"], [data-node-id="1:20"])[aria-current="location"] { color: var(--theme-accent); }
+[data-theme="dark"] .hero-social-link { background: var(--theme-surface); color: var(--theme-accent); border-color: var(--theme-border); }
+[data-theme="dark"] .hero-social-link:hover { background: var(--theme-primary); color: var(--theme-text); }
+[data-theme="dark"] [data-ui="hero-heading"] > img { visibility: hidden; }
+[data-theme="dark"] .hero-persian-heading { display: block; position: absolute; inset-block: 35px 0; inset-inline: 40px 26px; direction: inherit; text-align: start; color: var(--theme-text); }
+[data-theme="dark"] .hero-persian-heading .hero-name { color: var(--theme-highlight); }
+[data-theme="dark"] .hero-persian-heading .hero-name::after { border-color: var(--theme-highlight); }
+[data-theme="dark"] .hero-persian-heading .hero-name::before { filter: brightness(1.6) saturate(.8); }
+[data-theme="dark"] [data-ui="hero-heading"]::before, [data-theme="dark"] [data-ui="hero-heading"]::after { display: none; }
+@media (min-width: 901px) {
+  [data-theme="dark"][lang="fa"] .hero-persian-heading { inset-inline: 0 26px; }
+  [data-theme="dark"][lang="fa"] .hero-persian-heading h1 { font-size: 50px; }
+}
+@media (max-width: 900px) {
+  .language-picker { gap: 12px; }
+  #theme-toggle { width: 44px; height: 44px; padding: 10px; }
+  .site-header { gap: 8px; }
+  [data-theme="dark"] .mobile-navigation:not([hidden]) { background: var(--theme-card); border-color: var(--theme-border); box-shadow: 0 12px 24px #0006; }
+  [data-theme="dark"] .mobile-navigation a { color: var(--theme-text); }
+  [data-theme="dark"] :is(.menu-toggle:hover, .menu-toggle[aria-expanded="true"], .mobile-navigation a:hover, .mobile-navigation a[aria-current="location"]) { background: var(--theme-border); color: var(--theme-text); }
+  [data-theme="dark"] :is(:is(#services, #works) > [data-ui="section-intro"], #works [data-ui="project-description"], #contact .section-eyebrow) { color: var(--theme-muted); }
+  [data-theme="dark"] #home .hero-persian-heading { position: static; }
+}
+@media (max-width: 360px) { .site-header { gap: 4px; padding-inline: 8px; } }
+/* Persian desktop proportions follow the supplied full-page reference. */
+[data-theme="dark"][lang="fa"] .hero-persian-heading { color: var(--theme-text); }
+@media (min-width: 901px) {
+  [data-theme="dark"][lang="fa"] #portfolio { padding-top: 2540px; min-height: 0; }
+  [data-theme="dark"][lang="fa"] #home { height: 786px; }
+  [data-theme="dark"][lang="fa"] #services { top: 840px; height: 613px; }
+  [data-theme="dark"][lang="fa"] #works { top: 1485px; height: 1025px; }
+  [data-theme="dark"][lang="fa"] #services > [data-ui="service-card"] { width: 426px; height: 336px; top: 243px; }
+  [data-theme="dark"][lang="fa"] #services > [data-node-id="1:58"] { inset-inline-start: 40px; }
+  [data-theme="dark"][lang="fa"] #services > [data-node-id="1:59"] { inset-inline-start: 479px; }
+  [data-theme="dark"][lang="fa"] #services > [data-node-id="1:60"] { inset-inline-start: 918px; }
+  [data-theme="dark"][lang="fa"] .contact-section { min-height: 683px; }
+}
+@media (min-width: 901px) {
+  [data-theme="dark"][lang="fa"] #services [data-name="Accent Orb"] { inset-inline-start: auto; inset-inline-end: -18px; top: auto; bottom: -22px; }
+}
+/* Keep the original English heading artwork and animated strokes in desktop dark mode. */
+@media (min-width: 901px) {
+  html[data-theme="dark"][lang="en"] [data-ui="hero-heading"] > img { visibility: visible; filter: invert(1) hue-rotate(180deg); }
+  html[data-theme="dark"][lang="en"] [data-ui="hero-heading"]::before,
+  html[data-theme="dark"][lang="en"] [data-ui="hero-heading"]::after { display: block; filter: invert(1) hue-rotate(180deg); }
+  html[data-theme="dark"][lang="en"] .hero-persian-heading { display: none; }
+}
